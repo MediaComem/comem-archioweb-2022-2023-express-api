@@ -36,3 +36,7 @@ The application is configured through the following environment variables:
 | `DATABASE_URL`       | `mongodb://localhost/express-api` | The MongoDB connection URI.                                                           |
 | `JWT_SECRET`         | -                                 | The secret used to sign JWTs. It should be a long random string.                      |
 | `PORT`               | `3000`                            | The port the server will listen on.                                                   |
+
+This application includes [dotenv](https://www.npmjs.com/package/dotenv). In
+development, you can also copy the `.env.sample` file to `.env` and adapt it to
+suit your environment.
