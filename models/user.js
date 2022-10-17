@@ -21,8 +21,10 @@ const userSchema = new Schema({
 userSchema.virtual('password');
 
 userSchema.pre('save', async function() {
-  const passwordHash = await bcrypt.hash(this.password, config.bcryptCostFactor);
-  this.passwordHash = passwordHash;
+  if (this.password) {
+    const passwordHash = await bcrypt.hash(this.password, config.bcryptCostFactor);
+    this.passwordHash = passwordHash;
+  }
 });
 
 userSchema.set("toJSON", {
