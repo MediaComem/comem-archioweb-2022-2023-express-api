@@ -3,10 +3,11 @@ import logger from "morgan";
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
 import authRouter from "./routes/auth.js";
+import * as config from "./config.js";
 
 import mongoose from 'mongoose';
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/express-api');
+mongoose.connect(config.databaseUrl);
 
 const app = express();
 
