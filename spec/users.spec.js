@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import supertest from "supertest";
 import app from "../app.js";
 import { cleanUpDatabase, disconnectFromDatabase, generateValidJwt } from "./utils.js";
