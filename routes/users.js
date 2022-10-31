@@ -1,6 +1,7 @@
 import express from "express";
 import User from "../models/user.js";
 import { authenticate } from "./auth.js";
+import { broadcastMessage } from "../messaging.js";
 
 const router = express.Router();
 
@@ -26,6 +27,11 @@ router.post('/', function(req, res, next) {
 
     // Send the saved document in the response
     res.send(savedUser);
+
+    broadcastMessage({
+      event: "userCreated",
+      name: savedUser.name
+    });
   });
 });
 

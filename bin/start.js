@@ -8,6 +8,7 @@ import app from "../app.js";
 import * as config from "../config.js";
 import createDebugger from "debug";
 import http from "http";
+import { createWebSocketServer } from '../messaging.js';
 
 const debug = createDebugger('express-api:server')
 /**
@@ -22,6 +23,7 @@ app.set("port", port);
  */
 
 const server = http.createServer(app);
+createWebSocketServer(server);
 
 /**
  * Listen on provided port, on all network interfaces.
